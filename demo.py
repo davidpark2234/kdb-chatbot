@@ -13,7 +13,7 @@ from langchain.schema import ChatMessage
 #load_dotenv()
 
 import os
-os.environ["OPENAI_API_KEY"] = "sk-proj-N4Eym32hD3HkVltVNWi8T3BlbkFJiq4n7XcFLK24rp6FgBgZ"
+os.environ["OPENAI_API_KEY"] = "sk-proj-kEwmWqiv0eoz50VuWwpGT3BlbkFJlh8gOYhThXEQF6LDSnEc"
 
 
 # handle streaming conversation
