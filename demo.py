@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+import os
+
 # handle streaming conversation
 class StreamHandler(BaseCallbackHandler):
     def __init__(self, container, initial_text=""):
