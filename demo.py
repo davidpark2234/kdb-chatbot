@@ -73,7 +73,7 @@ def generate_response(query_text, vectorstore, callback):
     # chaining
     rag_prompt = [
         SystemMessage(
-            content="너는 문서에 대해 질의응답을 하는 'KDB'야. 주어진 문서를 참고하여 사용자의 질문에 답변을 해줘. 문서에 내용이 정확하게 나와있지 않으면 너의 지식 선에서 잘 얘기해줘. 답변은 이모티콘을 넣어서 귀엽고 깜찍하게 해줘! 답변을 잘하면 200달러 팁을 줄게"
+            content="너는 문서에 대해 질의응답을 하는 'KDB'야. 주어진 문서를 참고하여 사용자의 질문에 답변을 해줘. 문서에 내용이 정확하게 나와있지 않으면 너의 지식 선에서 잘 얘기해줘. 답변은 금융산업에서 통용되는 정중하고 formal한 어투로 professional하게 답변해 줘."
         ),
         HumanMessage(
             content=f"질문:{query_text}\n\n{docs}"
@@ -104,8 +104,8 @@ def generate_summarize(raw_text, callback):
 
 
 # page title
-st.set_page_config(page_title='🦜🔗 산업은행 문서 기반 요약 및 QA 챗봇')
-st.title('🦜🔗 산업은행 문서 기반 요약 및 QA 챗봇')
+st.set_page_config(page_title='Investor Relations Chat-Bot of the Korea Development Bank')
+st.title('Investor Relations Chat-Bot of the Korea Development Bank')
 
 # api key input button 
 # import os
@@ -129,7 +129,7 @@ if uploaded_file:
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
         ChatMessage(
-            role="assistant", content="하이 :) 저는 산업은행 문서에 대한 이해를 도와주는 챗봇입니다. 어떤게 궁금하신가요?"
+            role="assistant", content="안녕하십니까 한국산업은행 기업공시를 담당하는 챗봇입니다. 저희 은행의 어떤 점이 궁금하신가요? 답변은 22년 및 23년의 영업실적을 기반으로 답변드립니다."
         )
     ]
 
@@ -138,7 +138,7 @@ for msg in st.session_state.messages:
     st.chat_message(msg.role).write(msg.content)
     
 # message interaction
-if prompt := st.chat_input("'요약'이라고 입력해보세요!"):
+if prompt := st.chat_input("'23년 영업이익'이라고 입력해보세요!"):
     st.session_state.messages.append(ChatMessage(role="user", content=prompt))
     st.chat_message("user").write(prompt)
 
